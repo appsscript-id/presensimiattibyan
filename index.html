@@ -412,7 +412,7 @@ button,.role.guru,.role.guru:hover,.role.kepsek,.role.kepsek:hover,.role.wali,.r
 (function(){var P="mi_",S=Storage.prototype,g=S.getItem,s=S.setItem,r=S.removeItem;
 S.getItem=function(k){return g.call(this,P+k)};S.setItem=function(k,v){return s.call(this,P+k,v)};S.removeItem=function(k){return r.call(this,P+k)};})();
 // ===== GANTI dengan URL deployment Apps Script (berakhiran /exec) =====
-var API_URL = "https://script.google.com/macros/s/AKfycbw7-HLA8XMppggbCHogm-kauwA50YOjgB4AnCSzSEVOLTSCDvMEWyllQwr-rnJoERvb/exec"; // tempel URL Web App Apps Script MI (berakhiran /exec)
+var API_URL = "ISI_URL_WEB_APP_MI_DI_SINI"; // tempel URL Web App Apps Script MI (berakhiran /exec)
 // =====================================================================
  
 var APP_VERSI = "4.2.0";
@@ -4061,6 +4061,65 @@ body.gelap #stat div{background:var(--card);border-color:var(--line)}
   #stat b{font-size:26px}
   #stat small{font-size:12px}
 }
+
+/* ===== Pilihan gaya tampilan (Pengaturan > Gaya tampilan). Bawaan = Klasik ===== */
+.gayaBox{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 6px}
+.gayaBox button.gy{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;margin:0;padding:10px;
+  background:var(--card);color:var(--ink);border:1.5px solid var(--line);border-radius:12px;box-shadow:none;width:auto}
+.gayaBox button.gy:hover{background:var(--field)}
+.gayaBox button.gy.on{border-color:var(--brand);background:var(--brand-soft)}
+.gayaBox .pv{display:block;width:100%;height:38px;border-radius:8px;border:1px solid var(--line);position:relative;overflow:hidden}
+.gayaBox .pv i{position:absolute;display:block}
+.gayaBox b{font-size:13.5px;font-weight:700}
+.gayaBox small{font-size:11.5px;color:var(--muted);font-weight:500;line-height:1.35;margin:0}
+.gayaBox .pv.k1{background:#f4f6fa}.gayaBox .pv.k1 i:nth-child(1){left:6px;right:6px;top:6px;height:12px;border-radius:4px;background:#e1eafb}
+.gayaBox .pv.k1 i:nth-child(2){left:6px;width:28%;top:22px;height:9px;border-radius:3px;background:#d6f5e6}.gayaBox .pv.k1 i:nth-child(3){left:36%;width:28%;top:22px;height:9px;border-radius:3px;background:#dbe6fd}
+.gayaBox .pv.k2{background:#fff}.gayaBox .pv.k2 i:nth-child(1){left:6px;right:6px;top:7px;height:2px;background:#cbd5e1}
+.gayaBox .pv.k2 i:nth-child(2){left:6px;width:28%;top:16px;height:14px;border:1px solid #cbd5e1;border-radius:3px}.gayaBox .pv.k2 i:nth-child(3){left:36%;width:28%;top:16px;height:14px;border:1px solid #cbd5e1;border-radius:3px}
+.gayaBox .pv.k3{background:#eef1f6}.gayaBox .pv.k3 i:nth-child(1){left:0;top:0;bottom:0;width:22%;background:#0f1f3d}
+.gayaBox .pv.k3 i:nth-child(2){left:28%;right:6px;top:6px;height:12px;border-radius:3px;background:#1e3a8a}.gayaBox .pv.k3 i:nth-child(3){left:28%;width:30%;top:22px;height:9px;border-radius:3px;background:#fff;border-top:2px solid #059669}
+.gayaBox .pv.k4{background:linear-gradient(150deg,#e8edff,#eefaf6)}.gayaBox .pv.k4 i:nth-child(1){left:6px;right:6px;top:6px;height:12px;border-radius:8px;background:rgba(255,255,255,.85)}
+.gayaBox .pv.k4 i:nth-child(2){left:6px;width:28%;top:22px;height:10px;border-radius:7px;background:rgba(255,255,255,.9)}.gayaBox .pv.k4 i:nth-child(3){left:36%;width:28%;top:22px;height:10px;border-radius:7px;background:rgba(255,255,255,.9)}
+
+/* --- Minimal: putih datar, garis tipis, tanpa bayangan --- */
+html[data-gaya="minimal"] body:not(.gelap){background:#fff!important}
+html[data-gaya="minimal"] body .head,html[data-gaya="minimal"] body .head.kepsek{background:transparent!important;border:0;border-bottom:1px solid var(--line);
+  border-radius:0;box-shadow:none;padding:14px 2px 16px}
+html[data-gaya="minimal"] body .head::after{display:none}
+html[data-gaya="minimal"] .card{box-shadow:none;border-radius:10px}
+html[data-gaya="minimal"] #stat div{background:transparent;border:1px solid var(--line);border-radius:10px}
+html[data-gaya="minimal"] #stat div::before{background-color:transparent;border-radius:0;margin-bottom:6px}
+html[data-gaya="minimal"] button{box-shadow:none;border-radius:8px}
+html[data-gaya="minimal"] #vDash #listSiswa .siswa{border-radius:8px;box-shadow:none}
+html[data-gaya="minimal"] #nav{box-shadow:none}
+
+/* --- Korporat: sidebar navy gelap, header solid, kartu dengan garis atas --- */
+html[data-gaya="korporat"] body:not(.gelap){background:#eef1f6!important}
+html[data-gaya="korporat"] body .head,html[data-gaya="korporat"] body .head.kepsek{background:linear-gradient(120deg,var(--g1),var(--g2))!important;
+  border:0;border-radius:12px;box-shadow:0 10px 24px -14px rgba(15,23,42,.6)}
+html[data-gaya="korporat"] body .head h2,html[data-gaya="korporat"] body .head div,html[data-gaya="korporat"] body .head b{color:#fff}
+html[data-gaya="korporat"] body .head::after{background:radial-gradient(circle,rgba(255,255,255,.16),transparent 68%)}
+html[data-gaya="korporat"] #stat div{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--bl,#94a3b8);border-radius:10px}
+html[data-gaya="korporat"] #stat .c0{--bl:#059669}html[data-gaya="korporat"] #stat .c1{--bl:#2563eb}html[data-gaya="korporat"] #stat .c2{--bl:#d97706}
+html[data-gaya="korporat"] #stat .c3{--bl:#dc2626}html[data-gaya="korporat"] #stat .c4{--bl:#64748b}
+html[data-gaya="korporat"] .card{border-radius:12px}
+html[data-gaya="korporat"] #nav{background:#0f1f3d;border-color:#0f1f3d}
+html[data-gaya="korporat"] #nav .nb{color:#a9b9d8}
+html[data-gaya="korporat"] #nav .nb:hover{background:rgba(255,255,255,.08)}
+html[data-gaya="korporat"] #nav .nb.on{background:rgba(255,255,255,.14);color:#fff}
+html[data-gaya="korporat"] #nav .nb.out{color:#ff9d9d}
+html[data-gaya="korporat"] #nav .nh{border-bottom-color:rgba(255,255,255,.12)}
+html[data-gaya="korporat"] #nav .nh b{color:#fff}html[data-gaya="korporat"] #nav .nh small{color:#9fb1d3}
+
+/* --- Lembut: latar gradien halus, kartu kaca --- */
+html[data-gaya="lembut"] body:not(.gelap){background:linear-gradient(160deg,#e9eeff 0%,#f7f9fc 45%,#eaf8f2 100%) fixed!important}
+html[data-gaya="lembut"] .card,html[data-gaya="lembut"] #stat div,html[data-gaya="lembut"] body .head,html[data-gaya="lembut"] body .head.kepsek{
+  border-radius:20px;border:1px solid rgba(255,255,255,.85);box-shadow:0 12px 30px -16px rgba(30,64,175,.35)}
+html[data-gaya="lembut"] body:not(.gelap) .card,html[data-gaya="lembut"] body:not(.gelap) #stat div{background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+html[data-gaya="lembut"] body:not(.gelap) .head{background:linear-gradient(120deg,rgba(214,228,255,.85),rgba(255,255,255,.85))!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+html[data-gaya="lembut"] button{border-radius:14px}
+html[data-gaya="lembut"] #vDash #listSiswa .siswa{border-radius:16px;background:rgba(255,255,255,.7)}
+html[data-gaya="lembut"] body:not(.gelap) #nav{background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
 </style>
 <script>
 // Mengganti emoji menjadi ikon garis (SVG) di seluruh tampilan, termasuk teks yang dibuat belakangan
@@ -4157,6 +4216,36 @@ var obs=new MutationObserver(function(ms){
   obs.takeRecords();
 });
 obs.observe(document.body,{childList:true,subtree:true,characterData:true});
+})();
+</script>
+<script>
+// Pilihan gaya tampilan: tersimpan di HP/laptop masing-masing, muncul di menu Pengaturan guru, kepala sekolah, dan wali
+(function(){
+var DAFTAR=[["klasik","k1","Klasik","Header terang, kartu berwarna lembut"],["minimal","k2","Minimal","Putih datar, garis tipis, paling ringkas"],
+  ["korporat","k3","Korporat","Sidebar navy gelap, header solid"],["lembut","k4","Lembut","Latar gradien halus, kartu kaca"]];
+var V=function(){var v="klasik";try{v=localStorage.getItem("gaya")||"klasik";}catch(e){}return DAFTAR.some(function(d){return d[0]===v;})?v:"klasik";};
+function terap(v){document.documentElement.setAttribute("data-gaya",v);
+  Array.prototype.forEach.call(document.querySelectorAll(".gayaBox button.gy"),function(b){b.classList.toggle("on",b.getAttribute("data-g")===v);});
+  var m=document.querySelector('meta[name="theme-color"]');if(m&&v==="korporat")m.setAttribute("content","#0f1f3d");else if(m)m.setAttribute("content","#1e3a8a");}
+function pasang(){
+  ["vSet","vKSet","vWSet"].forEach(function(id){
+    var el=document.getElementById(id);if(!el||el.querySelector(".gayaBox"))return;
+    var h4=null,l=el.querySelectorAll("h4");for(var i=0;i<l.length;i++){if(l[i].textContent.trim()==="Warna tema"){h4=l[i];break;}}
+    if(!h4)return;
+    var t=document.createElement("h4");t.textContent="Gaya tampilan";
+    var b=document.createElement("div");b.className="gayaBox";
+    b.innerHTML=DAFTAR.map(function(d){return '<button type="button" class="gy" data-g="'+d[0]+'"><span class="pv '+d[1]+'"><i></i><i></i><i></i></span><b>'+d[2]+'</b><small>'+d[3]+'</small></button>';}).join("");
+    h4.parentNode.insertBefore(t,h4);h4.parentNode.insertBefore(b,h4);
+    terap(V());
+  });
+}
+document.addEventListener("click",function(e){
+  var b=e.target.closest&&e.target.closest("button.gy[data-g]");if(!b)return;
+  e.stopPropagation();var v=b.getAttribute("data-g");try{localStorage.setItem("gaya",v);}catch(x){}terap(v);
+},true);
+var tunda=0;
+new MutationObserver(function(){if(tunda)return;tunda=requestAnimationFrame(function(){tunda=0;pasang();});}).observe(document.body,{childList:true,subtree:true});
+terap(V());pasang();
 })();
 </script>
 </body>
