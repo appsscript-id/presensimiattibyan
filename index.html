@@ -412,7 +412,7 @@ button,.role.guru,.role.guru:hover,.role.kepsek,.role.kepsek:hover,.role.wali,.r
 (function(){var P="mi_",S=Storage.prototype,g=S.getItem,s=S.setItem,r=S.removeItem;
 S.getItem=function(k){return g.call(this,P+k)};S.setItem=function(k,v){return s.call(this,P+k,v)};S.removeItem=function(k){return r.call(this,P+k)};})();
 // ===== GANTI dengan URL deployment Apps Script (berakhiran /exec) =====
-var API_URL = "https://script.google.com/macros/s/AKfycbw7-HLA8XMppggbCHogm-kauwA50YOjgB4AnCSzSEVOLTSCDvMEWyllQwr-rnJoERvb/exec"; // tempel URL Web App Apps Script MI (berakhiran /exec)
+var API_URL = "ISI_URL_WEB_APP_MI_DI_SINI"; // tempel URL Web App Apps Script MI (berakhiran /exec)
 // =====================================================================
  
 var APP_VERSI = "4.2.0";
@@ -4044,6 +4044,22 @@ body.gelap #stat div{background:var(--card);border-color:var(--line)}
   #nav .nb.on::before{display:none}
   #nav .nb.out{color:var(--bad)}
   body.app{padding:26px 28px 28px 280px}
+}
+
+/* ===== Perbaikan HP: kartu ringkasan tidak melewati batas, emoji lama di kartu dihapus ===== */
+#stat .c0::before,#stat .c1::before,#stat .c2::before,#stat .c3::before,#stat .c4::before{content:""!important;font-size:0!important}
+#stat{grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;width:100%}
+#stat div{min-width:0;padding:10px 8px;border-radius:12px}
+#stat div::before{width:28px;height:28px;margin-bottom:6px;background-size:16px}
+#stat b{font-size:22px}
+#stat small{font-size:11px;white-space:nowrap}
+.wrap{min-width:0}
+@media (min-width:820px){
+  #stat{gap:12px}
+  #stat div{padding:14px 16px;border-radius:14px}
+  #stat div::before{width:34px;height:34px;margin-bottom:10px;background-size:19px}
+  #stat b{font-size:26px}
+  #stat small{font-size:12px}
 }
 </style>
 <script>
